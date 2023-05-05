@@ -1,0 +1,3 @@
+C:/Users/Mehdi/Desktop/jackpotfinal/cmake-build-debug/CMakeFiles/jackpotfinal.dir
+C:/Users/Mehdi/Desktop/jackpotfinal/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Mehdi/Desktop/jackpotfinal/cmake-build-debug/CMakeFiles/rebuild_cache.dir
