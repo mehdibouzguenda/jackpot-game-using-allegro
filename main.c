@@ -4,7 +4,7 @@
 #include <time.h>
 #include <stdbool.h>
 
-#define NUM_ICON 8
+#define NUM_ICON 7
 
 void initialisation_allegro() {
 
@@ -97,8 +97,7 @@ int main() {
     char anim2[19][10] = {"a0.bmp", "a1.bmp", "a2.bmp", "a3.bmp", "a4.bmp", "a5.bmp", "a6.bmp", "a7.bmp"};
 
     //tableau image icone pour les symboles
-    char icon[NUM_ICON][10] = {"icon.bmp", "icon1.bmp", "icon2.bmp", "icon3.bmp", "icon5.bmp",
-                               "icon6.bmp",};
+
 
     //affichage animation
     for (int i = 0; i < 19; i++) {
@@ -187,7 +186,7 @@ int main() {
             draw_sprite(game, image, -99, 0);
             blit(game, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H); //va copier un rectangle de pixel l'image sur la fenetre
             //afficher_image(fond, "fond.bmp");
-            rest(1000); // Limiter le taux de rafraîchissement
+            rest(700); // Limiter le taux de rafraîchissement
 
 
             image = load_bitmap("fond3.bmp", NULL);
@@ -199,16 +198,19 @@ int main() {
             draw_sprite(game, image, -99, 0);
             blit(game, screen, 0, 0, 0, 0, SCREEN_W, SCREEN_H); //va copier un rectangle de pixel l'image sur la fenetre
             //afficher_image(fond, "fond.bmp");
-            rest(1000); // Limiter le taux de rafraîchissement
+            rest(700); // Limiter le taux de rafraîchissement
 
             srand(time(NULL));
-            int random_index1 = 2;
+            int random_index1 = 7;
             int random_index2 = 2;
             int random_index3 = 2;
 
             BITMAP *random_image1;
             BITMAP *random_image2;
             BITMAP *random_image3;
+
+            char icon[NUM_ICON][10] = {"icon.bmp", "icon1.bmp", "icon2.bmp", "icon3.bmp", "icon5.bmp",
+                                       "icon6.bmp","icon8.bmp"};
 
             //mettre la nouvelle image
             random_index1 = rand() % NUM_ICON;     //aleatoirement l index du tableau
@@ -247,7 +249,7 @@ int main() {
             rest(1000); // Limiter le taux de rafraîchissement
 
             //affichage du fond en fonction des icons (si il a gagné ou perdu)
-            if (random_index3 == random_index1 && random_index1 == random_index2) {
+            if ((random_index3 == random_index1) && (random_index1 == random_index2)) {
                 image = load_bitmap("fond_win.bmp", NULL);
                 if (!image) {
                     allegro_message("Erreur lors du chargement de l'image.");
@@ -261,9 +263,7 @@ int main() {
                 rest(1000); // Limiter le taux de rafraîchissement
             } else {
 
-
                 allegro_message("Tu as perdu, tu perds un ticket ");
-                //afficher_image(fond, "fond.bmp");
                 rest(3000); // Limiter le taux de rafraîchissement
             }
 
@@ -271,7 +271,7 @@ int main() {
             // }
             // allegro_message("im here");
 
-            //destroy_bitmap(image);
+            destroy_bitmap(game);
 
 
         } //while (game_start);
